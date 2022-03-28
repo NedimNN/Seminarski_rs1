@@ -1,0 +1,27 @@
+﻿@model Online_Rezervacija_Restorana.ViewModels.ShowOrderVM
+@{ ViewData["Title"] = "Show User Orders Page"; }
+
+<div>
+    <h3>Order details</h3>
+    <table class="tableRestaurants table-bordered table-hover">
+        <thead class="header">
+            <tr class="headrow">
+                <th class="txt1">Order description</th>
+                <th class="txt2">Allergies</th>
+                <th class="txt3">Meal</th>
+                <th class="txt4">Meal description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr id="row">
+                <td class="txt1">@Model.orderDesc</td>
+                <td class="txt2">@Model.orderAller</td>
+                <td class="txt3">@Model.meal.Name</td>
+                <td class="txt4">@Model.meal.Description</td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+<div class="reserveButton">
+    <a id="aButton" class="btn btn-primary" style="margin-top:55px;" href="/Reservation/UserReservation">Back to your reservations</a>
+</div>

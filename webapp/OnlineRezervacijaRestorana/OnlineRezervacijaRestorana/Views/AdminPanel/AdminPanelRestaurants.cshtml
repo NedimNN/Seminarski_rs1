@@ -1,0 +1,75 @@
+﻿@{
+}
+@model Online_Rezervacija_Restorana.ViewModels.AdminPanelRestaurantsVM
+<div class="nav flex-column nav-pills" id="v-pills-adminPanel" role="tablist" aria-orientation="vertical">
+    <a class="nav-link active" id="v-pills-admins-tab" asp-area="" asp-controller="AdminPanel" asp-action="AdminPanelUsers" asp-route-id="1" >Users</a>
+    <a class="nav-link" id="v-pills-restaurants-tab" asp-area="" asp-controller="AdminPanel" asp-action="AdminPanelRestaurants" asp-route-id="1" >Restaurants</a>
+</div>
+<div class="tab-content" id="v-pills-adminPanelContent">
+    <div class="tab-pane fade show active" id="v-pills-admins" role="tabpanel" aria-labelledby="v-pills-admins-tab">
+        <table class="tableRestaurants table-bordered table-hover">
+            <thead class="header">
+                <tr class="headrow">
+                    <th class="restxt1">#</th>
+                    <th class="restxt2">Restaurant Name</th>
+                    <th class="restxt3">Description</th>
+                    <th class="restxt4">Price Range</th>
+                    <th class="restxt5">City</th>
+                    <th class="restxt6">Action</th>
+                </tr>
+            </thead> 
+            <tbody>
+                @{ var i = 1; }
+                @foreach (var item in Model.pagedRestaurantResults.Results)
+                {
+                    var rowNo = (Model.pagedRestaurantResults.CurrentPage - 1) * Model.pagedRestaurantResults.PageSize + i;
+                    i++;
+                <tr id="row">
+                    <td class="restxt1">@rowNo</td>
+                    <td class="restxt2">@item.Name</td>
+                    <td class="restxt3">@item.Description</td>
+                    <td class="restxt4">@item.PriceRange</td>
+                    <td class="restxt5">@item.City_name</td>
+                    <td class="restxt6"> 
+                        <a class="btn btn-success" href="/Restaurant/RestaurantProfile?restaurantId=@item.ID"> Restaurant details </a> 
+                        <hr/>
+                        <input type="button" id="btnDelete" value="Delete" data-auction="@item.ID" class="btn btn-danger" />
+                    </td>
+
+                </tr>     
+                }
+            </tbody>
+        </table>
+
+        @for (var p = 1; p <= Model.pagedRestaurantResults.PageCount; p++)
+        {
+<div class="pagenumdiv">
+    <a class="pagenum" href="@Url.Action("AdminPanelRestaurants", new { page = p })" class="btn btn-default">@p</a>
+</div>}
+    </div>
+</div>
+<script >
+        $("body").on("click", "#btnDelete", function () {
+            if (confirm("Do you want to delete this restaurant?")) {
+                var restaurants = {};
+                restaurants.ID = $(this).data("auction");
+                $.ajax({
+                    type: "POST",
+                    url: "/RestaurantsApi/DeleteRestaurant",
+                    data: JSON.stringify(restaurants),
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    success: function (res) {
+                        if (res != null) {
+                            alert("Deleted the restaurant successfully");
+                        } else {
+                            alert("Restaurant record not found.");
+                        }
+                    }
+                });
+            }
+        });
+    $(document).ajaxStop(function () {
+        window.location.reload();
+    });
+</script>

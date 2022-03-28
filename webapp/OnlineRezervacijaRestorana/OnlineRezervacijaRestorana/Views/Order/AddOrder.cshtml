@@ -1,0 +1,71 @@
+﻿@model Online_Rezervacija_Restorana.ViewModels.AddOrderVM;
+@{ ViewData["Title"] = " Request An Order Page"; }
+
+<div class="flexOrder">
+    <div id="OrderDetailsdiv">
+        <h3 style="color:black; margin-top:5px;">Request an order</h3>
+        <form name="formOrder">
+            <div class="OrderDiv">
+                <div class="labeldescAllerouter">
+                    <label for="description" class="labeldescAller" style="margin-right: 89px;">Description</label>
+                    <label for="allergies" class="labeldescAller" style=" margin-right: 34px;">Allergies</label>
+                </div>
+
+                <div class="descAllergies">
+                    <textarea id="description" name="description" required></textarea>
+
+
+                    <textarea id="allergies" name="allergies" required></textarea>
+                </div>
+                <div class="divFormMeals">
+                    <label for="meals" style="margin-left: 36px;">Meals</label> <br />
+                    <select id="meals" class="mealsSelect" asp-for="@Model.orderMealId" asp-items="@Model.orderMeal" name="mealId" required></select>
+                </div>
+                <input type="number" id="reservationId" value="@Model.reservationId" hidden />
+                <br />
+                <input id="btnOrder" type="button" class="btn btn-primary" value="Send Order" onclick="btnSendOrder()" />
+            </div>
+        </form>
+    </div>
+</div>
+<div class="reserveButton">
+    <a id="aButton" class="btn btn-primary" style="margin-top:55px;" href="/Reservation/UserReservation">Back to your reservations</a>
+</div>
+<script>
+    function btnSendOrder() {
+        var x = new Object();
+        x.orderDesc = document.getElementById("description").value;
+        x.orderAller = document.getElementById("allergies").value;
+        x.reservationId = document.getElementById("reservationId").value;
+        x.orderMealId = document.getElementById("meals").value;
+
+        if (x.orderDesc == "" || x.orderAller == "") {
+            alert("Description and allergies are required fields!")
+            return;
+        }
+
+
+        var strJson = JSON.stringify(x);
+        console.log(strJson);
+
+        var myUrl = 'https://p1902.app.fit.ba/RestaurantsApi/AddOrder';
+
+        var req = new XMLHttpRequest();
+        req.onload = function () {
+            if (req.status === 200) {
+                alert("Added the order successfully!" + req.responseText);
+                location.href = "https://p1902.app.fit.ba/Reservation/UserReservation"
+            }
+            else {
+                alert("An order has already been placed on this reservation");
+                location.href = "https://p1902.app.fit.ba/Reservation/UserReservation"
+            }
+        };
+
+        req.open("POST", myUrl, true);
+        req.setRequestHeader("Content-Type", "application/json");
+        req.send(strJson);
+    }
+
+
+</script>

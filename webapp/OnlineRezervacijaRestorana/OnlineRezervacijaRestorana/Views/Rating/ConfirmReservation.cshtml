@@ -1,0 +1,72 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Online_Rezervacija_Restorana.ViewModels.ConfirmReservationVM
+@{
+    ViewData["Title"] = "Confirm Reservation Page";
+}
+
+<div class="text-center card padded-div">
+    <div class="container-fluid">
+	    <div class="row">
+		    <div class="col-md-12">
+			    <h3>
+				    Reservation Confirmation
+			    </h3>
+                <hr />
+
+		    </div>
+        </div>
+        <div class="row">
+                <div class="col-md-12 text-left">
+	 
+                        <div class="row">
+		                <div class="col-md-3">
+                            <h5>Restaurant Name</h5>
+                            <h6>@Model.restaurantName</h6>
+
+		                </div>
+		      
+	                </div>
+	                <div class="row">
+		                <div class="col-md-4">
+                            <h5>Number of Guests</h5>
+                            <h6>@Model.reservationNumberOfGuests</h6>
+
+		                </div>
+		                <div class="col-md-4">
+                            <h5>Date</h5>
+                            <h6>@Model.reservationStartDate</h6>
+
+		                </div>
+		                <div class="col-md-4">
+                            <h5>Time</h5>
+                            <h6>@Model.reservationStartTime</h6>
+
+		                </div>
+	                </div>            
+      
+            </div>
+        </div>
+
+        <div class="row padded-div">
+            @if (@Model.completedReservation) {
+                <div class="alert alert-success full-width" role="alert">
+                    <h4 class="alert-heading">Reservation has been succesfuly confirmed!</h4>
+                    <hr>
+                    <h6 class="alert-heading">You can view your reservations at the Reservations page.</h6>
+
+                </div>
+            } else {
+                <div class="alert alert-danger full-width" role="alert">
+                    <h4 class="alert-heading">We are sorry. No available tables for the selected dates!</h4>
+                    <hr>
+                    <h6 class="alert-heading">You can view your reservations at the Reservations page.</h6>
+
+                </div>
+
+            }
+                            
+		</div>
+    </div>
+</div>

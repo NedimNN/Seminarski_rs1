@@ -1,0 +1,79 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.0</TargetFramework>
+    <UserSecretsId>aspnet-Online_Rezervacija_Restorana-CF69EE88-6BF3-4D69-B008-8FEAA0D25EBB</UserSecretsId>
+    <RootNamespace>Online_Rezervacija_Restorana</RootNamespace>
+    <GenerateProgramFile>false</GenerateProgramFile>
+    <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+    <AspNetCoreModuleName>AspNetCoreModule</AspNetCoreModuleName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Data\Migrations\20211108141802_brate.cs" />
+    <Compile Remove="Data\Migrations\20211108141802_brate.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211201132535_update.cs" />
+    <Compile Remove="Data\Migrations\20211201132535_update.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211201133621_jao.cs" />
+    <Compile Remove="Data\Migrations\20211201133621_jao.Designer.cs" />
+    <Compile Remove="Data\Migrations\20211201134535_proba.cs" />
+    <Compile Remove="Data\Migrations\20211201134535_proba.Designer.cs" />
+    <Compile Remove="Data\Migrations\20220303150836_updatechanges2.1.cs" />
+    <Compile Remove="Data\Migrations\20220303150836_updatechanges2.1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20220303151212_update-changes2.1.cs" />
+    <Compile Remove="Data\Migrations\20220303151212_update-changes2.1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20220303151520_updatechanges2.1.cs" />
+    <Compile Remove="Data\Migrations\20220303151520_updatechanges2.1.Designer.cs" />
+    <Compile Remove="Data\Migrations\20220314111157_update-changes5.0.cs" />
+    <Compile Remove="Data\Migrations\20220314111157_update-changes5.0.Designer.cs" />
+    <Compile Remove="Data\Migrations\20220314111914_update-changes5.0.cs" />
+    <Compile Remove="Data\Migrations\20220314111914_update-changes5.0.Designer.cs" />
+    <Compile Remove="Data\Migrations\20220314120133_update-changes5.0.cs" />
+    <Compile Remove="Data\Migrations\20220314120133_update-changes5.0.Designer.cs" />
+    <Compile Remove="Data\Migrations\20220314120928_update-changes5.0.cs" />
+    <Compile Remove="Data\Migrations\20220314120928_update-changes5.0.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.0.1">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.TypeScript.MSBuild" Version="4.6.2">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Moq" Version="4.13.1" />
+    <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.4.0" />
+    <PackageReference Include="NUnit3TestAdapter" Version="3.15.1" />
+    <PackageReference Include="NUnit" Version="3.12.0" />
+    <PackageReference Include="Nexmo.Csharp.Client" Version="4.4.1" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.3.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repository\Implementations\" />
+    <Folder Include="Repository\Interfaces\" />
+    <Folder Include="Tests\" />
+    <Folder Include="Services\" />
+    <Folder Include="Views\Reservation\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Utilities\" />
+    <Folder Include="Views\Rating\" />
+    <Folder Include="Services\Emailing\" />
+    <Folder Include="Services\Emailing\EmailTemplates\" />
+    <Folder Include="Services\Worker\" />
+    <Folder Include="Configuration\" />
+    <Folder Include="Services\SMS\" />
+    <Folder Include="wwwroot\restaurant_images\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Views\Rating\Reservation.cshtml" />
+    <Content Remove="Views\Rating\ConfirmReservation.cshtml" />
+  </ItemGroup>
+</Project>

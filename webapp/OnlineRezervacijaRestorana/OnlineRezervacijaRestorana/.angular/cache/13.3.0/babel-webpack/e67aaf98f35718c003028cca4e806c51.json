@@ -1,0 +1,1 @@
+{"ast":null,"code":"export let MojConfig = /*#__PURE__*/(() => {\n  class MojConfig {}\n\n  MojConfig.adresa = \"https://p1902.app.fit.ba/RestaurantsApi/\";\n  return MojConfig;\n})();","map":null,"metadata":{},"sourceType":"module"}

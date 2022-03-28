@@ -1,0 +1,110 @@
+﻿@model Online_Rezervacija_Restorana.ViewModels.RatingVM
+@{
+    ViewData["Title"] = "Review Page";
+}
+<div class="container-fluidi padded-div">
+	<div class="row">
+		<div class="ratecolumn">
+			<h3 id="text-l" class="text-left">
+				Was here? Write a Review!
+			</h3>
+            <hr />
+            <form method="post" action="/restaurant/@Model.restaurantId/rating/CreateRating" name="formRating">
+
+                <input name="restaurantId" value="@Model.restaurantId"  hidden />
+                
+                <div class="form-group">
+                    <label for="comment">
+                        Leave a comment
+                    </label>
+                    <textarea name="commentText" cols="40" rows="5" class="form-control" id="comment" required ></textarea>
+                </div>
+                <div class="form-group">
+
+                    <label for="rating">
+                        Star Rating
+                    </label>
+                    <select name="ratingValue" class="form-control">
+                        <option value="@RatingMark.ONE_STAR">&#9733;&#9734;&#9734;&#9734;&#9734;</option>
+                        <option value="@RatingMark.TWO_STAR">&#9733;&#9733;&#9734;&#9734;&#9734;</option>
+                        <option value="@RatingMark.THREE_STAR">&#9733;&#9733;&#9733;&#9734;&#9734;</option>
+                        <option value="@RatingMark.FOUR_STAR">&#9733;&#9733;&#9733;&#9733;&#9734;</option>
+                        <option value="@RatingMark.FIVE_STAR" selected>&#9733;&#9733;&#9733;&#9733;&#9733;</option>
+                    </select>
+                </div>
+                <button id="form-button" type="submit" class="btn btn-primary">
+                    Submit
+                </button>
+            </form>
+		</div>
+		<div class="latestratecolumn">
+            <div class="row">
+                <h3 id="text-cent" class="text-center">
+				    Latest Reviews
+			    </h3>
+                <hr />
+            </div>
+			
+            <div class="row overflow-auto">
+                @foreach (Rating rating in Model.ratings)
+                {
+                    <div id="card" class="card margin-tb" style="margin:5px;">
+			            <h5 class="card-header">
+					        @rating.User.UserData.FirstName @rating.User.UserData.LastName - 
+
+                             @switch(rating.Mark)
+                                {
+                                    case RatingMark.ONE_STAR:
+                                        <span>&#9733;</span>
+                                        <span>&#9734;</span>
+                                        <span>&#9734;</span>
+                                        <span>&#9734;</span>
+                                        <span>&#9734;</span>
+                                        break;
+
+                                    case RatingMark.TWO_STAR:
+                                        <span>&#9733;</span>
+                                        <span>&#9733;</span>
+                                        <span>&#9734;</span>
+                                        <span>&#9734;</span>
+                                        <span>&#9734;</span>
+                                        break;
+
+                                    case RatingMark.THREE_STAR:
+                                        <span>&#9733;</span>
+                                        <span>&#9733;</span>
+                                        <span>&#9733;</span>
+                                        <span>&#9734;</span>
+                                        <span>&#9734;</span>
+                                        break;
+
+                                    case RatingMark.FOUR_STAR:
+                                        <span>&#9733;</span>
+                                        <span>&#9733;</span>
+                                        <span>&#9733;</span>
+                                        <span>&#9733;</span>
+                                        <span>&#9734;</span>
+                                        break;
+
+                                    case RatingMark.FIVE_STAR:
+                                        <span>&#9733;</span>
+                                        <span>&#9733;</span>
+                                        <span>&#9733;</span>
+                                        <span>&#9733;</span>
+                                        <span>&#9733;</span>
+                                        break;
+                                 }
+				        </h5>
+				    
+				        <div class="card-body">
+					        <p class="card-text">
+						        "@rating.Comment" on @rating.InsertTime.ToLongDateString()
+					        </p>
+				        </div>
+                    </div>
+                }
+            </div>
+        </div>
+
+    </div>
+</div>

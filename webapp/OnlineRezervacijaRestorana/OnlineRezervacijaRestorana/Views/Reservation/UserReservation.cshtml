@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Online_Rezervacija_Restorana.ViewModels.UserReservationVM
+@{
+   ViewData["Title"] = "User Reservations Page";
+}
+
+<table class="tableUsers table-bordered table-hover">
+        <thead class="header">
+            <tr class="headrow">
+                <th class="userRow1" >No.</th>
+                <th class="userRow2" >Name</th>
+                <th class="userRow3" >Guests</th>
+                <th class="userRow4" >Arrival Date</th>
+                <th class="userRow5" >Arrival Time</th>
+                <th class="userRow6" >Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ var i = 1; }
+            @foreach (var reservation in Model.pagedResults.Results)
+            {
+                var rowNo = (Model.pagedResults.CurrentPage - 1) * Model.pagedResults.PageSize + i;
+                i++;
+            <tr id="row">
+                <td class="userRow1" >@rowNo</td>
+                <td class="userRow2" >@reservation.Table.Restaurant.Name</td>
+                <td class="userRow3" >@reservation.GuestNumber</td>
+                <td class="userRow4" >@reservation.StartTime.ToLongDateString()</td>
+                <td class="userRow5" >@reservation.StartTime.ToLongTimeString()</td>
+                <td class="userRow6" >
+                    <a class="btn btn-success" href="/Order/AddOrder?Id=@reservation.ID"> Request an order</a>
+                    <hr />
+                    <a class="btn btn-success" href="/Order/ShowOrder?Id=@reservation.ID" style=""> Order details</a>
+                </td>
+                
+
+
+            </tr>
+}
+        </tbody>
+</table>
+
+
+@for (var p = 1; p <= Model.pagedResults.PageCount; p++)
+{<div class="pagenumdiv">
+    <a class="pagenum" href="@Url.Action("UserReservation", new { page = p })" class="btn btn-default">@p</a>
+</div>
+}

@@ -1,0 +1,36 @@
+﻿@model List<Online_Rezervacija_Restorana.ViewModels.RestaurantVM>
+@{ ViewData["Title"] = "Restaurants Page"; }
+
+
+<table class="tableRestaurants table-bordered table-hover">
+    <thead class="header">
+
+
+        <tr class="headrow">
+            <th class="txt1">Restaurant Name</th>
+            <th class="txt2">Description</th>
+            <th class="txt3">Price Range</th>
+            <th class="txt4">City</th>
+            <th class="txt4">Action</th>
+
+        </tr>
+
+
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+<tr id="row">
+    <td class="txt1">@item.Name</td>
+    <td class="txt2">@item.Description</td>
+    <td class="txt3">@item.PriceRange</td>
+    <td class="txt4">@item.City_name</td>
+    <td> <a class="btn btn-success" href="/Restaurant/RestaurantProfile?restaurantId=@item.ID"> Restaurant details </a> </td>
+    <td><a class="btn btn-success" href="/Reservation/Index">Reserve now </a></td>
+
+
+</tr>}
+    </tbody>
+</table>
+
+

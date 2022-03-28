@@ -1,0 +1,50 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Online_Rezervacija_Restorana.ViewModels.AdminPanelVM
+@{
+   ViewData["Title"] = "Admin Panel Page";
+}
+
+<div class="nav flex-column nav-pills" id="v-pills-adminPanel" role="tablist" aria-orientation="vertical">
+    <a class="nav-link active" id="v-pills-admins-tab" asp-area="" asp-controller="AdminPanel" asp-action="AdminPanelUsers" asp-route-id="1">Users</a>
+    <a class="nav-link" id="v-pills-restaurants-tab" asp-area="" asp-controller="AdminPanel" asp-action="AdminPanelRestaurants">Restaurants</a>
+</div>
+<div class="tab-content" id="v-pills-adminPanelContent">
+  <div class="tab-pane fade show active" id="v-pills-admins" role="tabpanel" aria-labelledby="v-pills-admins-tab">
+    <table class="tableRestaurants table-bordered table-hover">
+        <thead class="header">
+            <tr class="headrow">
+                <th class="txt6">#</th>
+                <th class="txt7">First Name</th>
+                <th class="txt8">Last Name</th>
+                <th class="txt9">Email</th>
+                <th class="txt10">User Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            @{ var i = 1; }
+            @foreach (var user in Model.pagedUserResults.Results)
+            {
+                var rowNo = (Model.pagedUserResults.CurrentPage - 1) * Model.pagedUserResults.PageSize + i;
+                i++;
+                <tr id="row">
+                    <td class="txt6">@rowNo</td>
+                    <td class="txt7">@user.UserData.FirstName</td>
+                    <td class="txt8">@user.UserData.LastName</td>
+                    <td class="txt9">@user.Email</td>
+                    <td class="txt10">@user.UserRole.Role.ToString()</td>
+
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    @for (var p = 1; p <= Model.pagedUserResults.PageCount; p++)
+    {
+  <div class="pagenumdiv">
+      <a class="pagenum" href="@Url.Action("AdminPanelUsers", new { page = p })" class="btn btn-default">@p</a>
+  </div>
+    }
+  </div>
+</div>

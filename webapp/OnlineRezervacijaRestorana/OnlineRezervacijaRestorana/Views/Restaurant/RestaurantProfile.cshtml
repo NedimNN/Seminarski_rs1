@@ -1,0 +1,204 @@
+﻿@model Online_Rezervacija_Restorana.Models.Restaurant
+@{ ViewData["Title"] = Model.Name +" Page"; }
+
+<div class="restaurantHead">
+    <h2 style="padding-top:55px; float:left; display:block; margin-bottom:25px;">@Model.Name Restaurant</h2>
+
+    <h3 style="padding-top: 15px; display:block; padding-bottom:15px;">@Model.Description</h3>
+    <div class="divprofileImg">
+        @foreach (Image i in Model.Images)
+        {
+<img style="height:275px; width:375px; border:5px solid lightgray; margin:5px; " src="@i.Url" />}
+    </div>
+</div>
+@foreach (Menu item in Model.Menus)
+{
+<div class="divMenuTabel">
+    <label class="MenuLabel">@item.Name</label>
+    <table class="tableMenu table-bordered">
+        <thead>
+            <tr>
+                <th> Name </th>
+                <th> Meals </th>
+                <th> Meal Type </th>
+                <th> Price </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (Meal i in item.Meals)
+            {
+<tr>
+    <td>@i.Name</td>
+    <td>@i.Description</td>
+    <td>@i.MealType.Name</td>
+    <td>@i.Price</td>
+</tr>}
+        </tbody>
+    </table>
+</div>}
+<div class="reserveButton">
+    <a id="aButton" class="btn btn-primary" style="margin-top:55px;" href="/Reservation/Index">Reserve a tabel now</a>
+</div>
+<hr />
+<div class="addForms">
+    <div>
+        <label class="labelTable">Tables</label>
+        <table class="tableProfile table-striped">
+            <thead>
+                <tr>
+                    <th> Sitting places </th>
+                    <th> Reserved </th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (Table item in Model.Tables)
+                {
+    <tr>
+        <td>@item.SittingPlaces </td>
+        @if (item.Reservations.Count() > 0)
+        {
+            <td> Reserved </td>
+}
+        @if (item.Reservations.Count() == 0)
+        {
+            <td> Not Reserved </td>
+}
+    </tr>}
+            </tbody>
+        </table>
+    </div>
+    <div class="TableandMenu">
+        <form action="/Restaurant/AddTable">
+            <div class="addForm">
+                <h4 style="text-align: center; margin-top: 0; margin-bottom: 8px; color: black;"> Add tables to your restaurant</h4>
+                <div class="innerPart">
+                    <label style="margin-left:15px;">Sitting places</label>
+                    <input style=" width: 35px; height: 15px;" type="number" name="sittingPlaces" min="2" max="10" value="2" required />
+                </div>
+                <input type="number" name="restaurantId" value="@Model.ID" hidden />
+                <button type="submit" id="btnAddTable" class="btn btn-primary">Add a table</button>
+            </div>
+        </form>
+        <form class="formMeal" name="formMeal" action="/Restaurant/AddMealtoMenu">
+            <div class="addForm">
+                <h4 style="text-align: center; margin-top: 0; margin-bottom: 8px; color: black;"> Add meals to menus</h4>
+                <div class="innerPart">
+                    <div class="divFormMenu">
+                        <label style="margin-left:15px;">Name</label>
+                        <input style=" width: 115px; height: 15px;" type="text" name="name" id="name" required /> <br />
+                    </div>
+                    <div class="divFormMenu">
+                        <label style="margin-left:15px;">Description</label>
+                        <input style=" width: 110px; height: 15px;" type="text" name="description" id="description" required /> <br />
+                    </div>
+                    <div class="divFormMenu">
+                        <label style="margin-left:15px;">Price</label>
+                        <input style=" width: 35px; height: 15px;" type="number" name="price" id="price" min="2" max="35" required /> <br />
+                    </div>
+                    <div class="divFormMenu">
+                        <label style="margin-left:15px;">Meal type</label>
+                        <select class="selectMeal" name="mealtypeId" required>
+                            <option value="1">Breakfast</option>
+                            <option value="2">Brunch</option>
+                            <option value="3">Lunch</option>
+                            <option value="4">Dinner</option>
+                            <option value="5">Appetizer</option>
+                        </select>
+                    </div>
+                    <div class="divFormMenu">
+                        <label style="margin-left:15px;">Menu</label>
+                        <select class="selectMeal" name="menuId" required>
+                            @foreach (Menu item in Model.Menus)
+                            {
+                <option value="@item.ID">@item.Name</option>
+}
+                        </select>
+                    </div>
+                </div>
+                <input type="number" name="restaurantId" value="@Model.ID" hidden />
+                <button type="submit" id="btnAddMeal" class="btn btn-primary">Add a meal</button>
+            </div>
+        </form>
+    </div>
+    <div class="addForm" style="width: 401px;">
+        <h4 style="color: black">Choose a picture to add to this restaurant</h4>
+        <label>Preview of your picture </label>
+        <img id="preview_image" style="height:275px; width:375px; border:5px solid lightgray;" />
+        <input id="file-input" accept="image/*" type="file" onchange="generate_preview()" />
+        <button id="btnAddMeal" style="margin-left: 162px;" class="btn btn-primary" onclick="upload_image()">Upload</button>
+    </div>
+</div>
+
+<hr />
+<div class="mapSegment">
+    <div class="mapInfo">
+        <h4 style="color: black; margin-top: 0; margin-bottom: 0; ">Want to know where this restaurant is ?</h4>
+        <h4 style="color: black; margin-top: 0; margin-bottom: 0; ">Type the name in the search box </h4>
+    </div>
+
+
+    <div class="mapouter">
+        <input id="pac-input"
+               class="controls"
+               type="text"
+               placeholder="@Model.Name" />
+        <div id="map" class="gmap_canvas"></div>
+    </div>
+</div>
+<hr />
+
+
+<div id="ajaxDiv">
+</div>
+<script src="~/js/GoogleAPIScript.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDJMU_DhUMXqz5VxE_lh1hgEGzPWL2i4Eo&callback=initAutocomplete&libraries=places&v=weekly"
+        async></script>
+<script>
+
+    function generate_preview() {
+
+        var file = document.getElementById("file-input").files[0];
+
+        if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function () {
+                document.getElementById("preview_image").setAttribute("src", reader.result);
+                }
+        }
+        reader.readAsDataURL(file);
+    }
+    function upload_image() {
+        var restaurantId = @Model.ID;
+        var file = document.getElementById("file-input").files[0];
+
+        if (file) {
+            var data = new FormData()
+            data.append('restaurant_image', file)
+
+            fetch("https://p1902.app.fit.ba/RestaurantsApi/AddRestaurantImage/" + restaurantId, {
+                method: 'POST',
+                body: data
+            })
+                .then(response => response.json())
+                .then(data => {
+                    alert("You added a picture successfully!");
+                    console.log('Success', data)
+                    document.getElementById("file-input").value = "";
+                    document.getElementById("preview_image").setAttribute('src', "");
+                    window.location.reload();
+                })
+                .catch((error) => {
+                    alert("Encounterd an error while adding picture! " + error);
+                    console.error('Error:', error);
+                });
+        }
+    }
+
+    $(document).ready(function (e, s) {
+        $.get("/Rating/Index?restaurantId=@Model.ID", function (rezultat, status) {
+            $("#ajaxDiv").html(rezultat);
+        })
+    }
+    );
+</script>

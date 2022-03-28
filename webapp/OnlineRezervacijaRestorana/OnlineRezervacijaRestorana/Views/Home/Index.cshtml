@@ -1,0 +1,127 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/global.css" />
+    <link rel="stylesheet" href="~/css/test.css" />
+    <link rel="stylesheet" href="~/css/slide.css" />
+</head>
+
+<body class="ng-scope">
+
+
+    <div class="background " >
+        <div class="home-masthead text-center ">
+            <div class="container">
+                <div class="row">
+                    <div class="col-xs-69">
+                        <h1>Make a free reservation </h1>
+
+                        <form name="locationForm" action="/Restaurant/ShowRestaurants/">
+
+                            <div class="rowlin no-gutters form-row">
+                                <div class="col-xs-12 col-md-4">
+                                    <input id="locationsearch" type="search" name="cityname" class="form-control home-form-control form-control-lg " placeholder="Location">
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-2">
+                                    <button type="submit" id="buttonhome" class="btn btn-home btn-block btn-primary form-btn ">Find a table</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="slideshow-container">
+
+
+            <div class="mySlides fade">
+                <div class="numbertext">1 / 3</div>
+                <a href="/Restaurant/RestaurantProfile?restaurantId=2">
+                    <img src="http://www.restoran-prestige.com/wp-content/uploads/2018/01/pr2018a.jpg" style="width:100%">
+                </a>
+                <div class="text">Restoran Prestige</div>
+
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">2 / 3</div>
+                <a href="/Restaurant/RestaurantProfile?restaurantId=3">
+                    <img src="https://www.motel-emen.com/slike/restoran1.jpg" style="width:100%">
+                </a>
+                <div class="text">EMEN Restoran</div>
+            </div>
+
+            <div class="mySlides fade">
+                <div class="numbertext">3 / 3</div>
+                <a href="/Restaurant/RestaurantProfile?restaurantId=4">
+                    <img src="https://images.pexels.com/photos/279813/pexels-photo-279813.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=640&amp;w=480" style="width:100%">
+                </a>
+                <div class="text">MEGI Le Petit Restaurant</div>
+            </div>
+
+
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        </div>
+
+        <br>
+
+
+        <div style="text-align:center">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+
+        <div class="locations">
+            <h3 class="location">Popular locations</h3>
+            <div class="row popular-locations-row">
+                @*//https://localhost:44328/*@
+                <div class="col-xs-6 col-sm-3 col-md-3 text-left ">
+                    <button onclick="location.href='/Restaurant/ShowRestaurants?cityname=Mostar';" class=" btn btn-location center-block pop-loc-info">
+                        <h4 class="">Mostar</h4> <p class="number ">5 restaurants</p>
+                    </button>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-3 text-left ">
+                    <button onclick="location.href='/Restaurant/ShowRestaurants?cityname=Gorazde';" class=" btn btn-location center-block pop-loc-info">
+                        <h4 class="">Goražde</h4> <p class="number ">3 restaurants</p>
+                    </button>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-3 text-left ">
+                    <button onclick="location.href='/Restaurant/ShowRestaurants?cityname=BanjaLuka';" class=" btn btn-location center-block pop-loc-info">
+                        <h4 class="">Banja Luka</h4> <p class="number">3 restaurants</p>
+                    </button>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-3 text-left ">
+                    <button onclick="location.href='/Restaurant/ShowRestaurants?cityname=Gracanica';" class=" btn btn-location center-block pop-loc-info">
+                        <h4 class="">Gracanica</h4> <p class="number ">2 restaurants</p>
+                    </button>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-3 text-left">
+                    <button onclick="location.href='/Restaurant/ShowRestaurants?cityname=Vitez';" class=" btn btn-location center-block pop-loc-info">
+                        <h4 class="">Vitez</h4> <p class="number ">3 restaurants</p>
+                    </button>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-3 text-left">
+                    <button onclick="location.href='/Restaurant/ShowRestaurants?cityname=Travnik';" class=" btn btn-location center-block pop-loc-info">
+                        <h4 class="">Travnik</h4> <p class="number g">7 restaurants</p>
+                    </button>
+                </div>
+                <div class="col-xs-6 col-sm-3 col-md-3 text-left ">
+                    <button onclick="location.href='/Restaurant/ShowRestaurants?cityname=Sarajevo';" class=" btn btn-location center-block pop-loc-info">
+                        <h4 class="">Sarajevo</h4> <p class="number ">3 restaurants</p>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="~/js/slide.js"></script>
+</body>
+</html>

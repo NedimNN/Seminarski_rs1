@@ -1,0 +1,56 @@
+﻿@model Online_Rezervacija_Restorana.ViewModels.ReservationIndexMV
+@{
+    ViewData["Title"] = "Reservation Page";
+}
+<form action="/restaurant/1/reservation/ConfirmReservation">
+    <div class="text-left card padded-div">
+        <div id="reservationDiv" class="container-fluid">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="reserveheader">
+                        Reserve Now
+                    </h3>
+                    <hr class="line" />
+                </div>
+            </div>
+            <div class="row1 padded-div">
+                <div id="onaj" class="col-md-33">
+                    <h5>Number of Guests</h5>
+                    <input type="number" name="numberOfGuests" min="1" max="13" value="1" required>
+
+                </div>
+                <div class="col-md-33">
+                    <h5>Date</h5>
+                    <input type="date" name="reservationDate" min="@Model.dateNow.ToString("yyyy-MM-dd")" max="@Model.dateNow.AddDays(20).ToString("yyyy-MM-dd")" value="@Model.dateNow.ToString("yyyy-MM-dd")" required>
+
+                </div>
+                <div class="col-md-33">
+                    <h5>Time</h5>
+                    <input type="time" name="reservationTime" min="09:00" max="21:00" value="09:00" step="3600" required>
+
+                </div>
+                <div class="col-md-33">
+                    <h5>Restaurant</h5>
+                    <select class="restaurantSelect" asp-for="@Model.restaurantId" asp-items="@Model.restaurants" name="restaurantId" required></select>
+                </div>
+
+                <div class="col-md-22">
+                    <h5>Email</h5>
+                    <input type="email" name="email" placeholder="example@email.com" required>
+                </div>
+                <div class="col-md-22">
+                    <h5>Reminder Number</h5>
+                    <input style="width: 108px;" type="number" name="number" placeholder="38761321987" required>
+                </div>
+
+
+            </div>
+            <div class="row3 padded-div">
+                <div class="col-md-11 padded-div">
+                    <input type="submit" class="btn btn-success btn-lg btn-block" value="Reserve Now">
+                </div>
+            </div>
+        </div>
+    </div>
+</form>
+

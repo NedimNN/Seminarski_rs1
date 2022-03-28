@@ -1,0 +1,51 @@
+﻿
+
+<div>
+    <div class="text-left card padded-div">
+            <div id="RestaurantCreateDiv" class="container-fluid">
+                <div class="row">
+                    <div class="col-md-12">
+                        <h3 class="RestaurantCreate">
+                            Create your restaurant profile
+                        </h3>
+                        <hr class="line" />
+                    </div>
+                </div>
+                <div id="createRow" class="row1 padded-div">
+                    <div id="onaj" class="col-md-33">
+                        <label class="form-label">Restaurant name</label>
+                        <input type="text" name="restaurantname" id="restaurantname" class="form-control" [(ngModel)]="odabraniRestoran.name" placeholder="Name of restaurant" required min-length="2">
+
+                    </div>
+
+
+                    <div class="col-md-33">
+                        <label class="form-label">Description</label>
+                        <textarea type="text" name="desc" id="desc" class="form-control" [(ngModel)]="odabraniRestoran.description" placeholder="Short description of the restaurant" rows="5" cols="20" required min-length="12" style="margin-top: 8px;"></textarea>
+
+                    </div>
+                    <div class="col-md-33">
+                        <label class="form-label">Price range</label>
+                        <select style="border: 2px solid gray; border-radius: 7px; margin-right: 8px; width:150px;" class="form-control" [(ngModel)]="odabraniRestoran.priceRange" required>
+                            <option value="0">Cheap</option>
+                            <option value="1">Mid</option>
+                            <option value="2">Expensive </option>
+
+                        </select>
+                    </div>
+
+                    <div class="col-md-33">
+                        <label class="form-label">City name</label>
+                        <input type="text" name="cityname" id="cityname" class="form-control" [(ngModel)]="odabraniRestoran.city_name" placeholder="Try Sarajevo or Mostar" required>
+
+                    </div>
+                </div>
+                    <div class="row3 padded-div">
+                        <div class="col-md-11 padded-div">
+                            <button type="button" name="snimibtn" id="snimibtn" class="btn btn-success" (click)="snimi()">Create your restaurant </button>
+                        </div>
+                    </div>
+
+            </div>
+    </div>
+</div>

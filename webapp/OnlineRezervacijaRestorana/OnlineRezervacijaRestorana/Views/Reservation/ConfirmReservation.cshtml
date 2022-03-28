@@ -1,0 +1,70 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model Online_Rezervacija_Restorana.ViewModels.ConfirmReservationVM
+@{
+    ViewData["Title"] = "Confirm Reservation Page";
+}
+
+<div class="text-center card padded-div">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="reserveheader" >
+                    Reservation Confirmation
+                </h3>
+                <hr />
+            </div>
+        </div>
+        <div class="confirmResDiv">
+                    <div class="row" style="float:none; margin-left:0;">
+                        <div class="col-md-44" style="float: none; margin-left: 0;">
+                            <h5>Restaurant Name</h5>
+                            <h4 style="color:black;">@Model.restaurantName</h4>
+
+                        </div>
+                    </div>
+                        <div class="col-md-44" style="float:none; margin-left:0;">
+                            <h5>Number of Guests</h5>
+                            <h4 style="color:black;">@Model.reservationNumberOfGuests</h4>
+
+                        </div>
+                        <div class="col-md-44" style="float: none; margin-left: 0;">
+                            <h5>Date</h5>
+                            <h4 style="color:black;">@Model.reservationStartDate</h4>
+
+                        </div>
+                        <div class="col-md-44" style="float: none; margin-left: 0;">
+                            <h5>Time</h5>
+                            <h4 style="color:black;">@Model.reservationStartTime</h4>
+                        </div>
+        </div>
+        <div class="row padded-div">
+            @if (@Model.completedReservation)
+            {
+        <div class="ressuccDiv">
+
+            <div class="alert alert-success full-width" role="alert">
+                <h4 class="alert-heading">Reservation has been succesfuly confirmed!</h4>
+                <hr>
+                <h4 class="alert-heading" style="color:white;">You can view your reservations at the Reservations page.</h4>
+                <h4 class="alert-heading" style="color:white;">An email has been sent to the confirmation email address.</h4>
+                <h4 class="alert-heading" style="color:white;">An email/SMS reminder will be sent on the day of reservation.</h4>
+
+            </div>
+        </div> }
+    else
+    {
+        <div class="ressuccDiv">
+
+            <div class="alert alert-danger full-width" role="alert">
+                <h4 class="alert-heading">We are sorry. No available tables for the selected dates!</h4>
+                <hr>
+                <h4 class="alert-heading" style="color:white;">You can view your reservations at the <b>My Reservations</b> page.</h4>
+            </div>
+        </div>}
+
+        </div>
+    </div>
+    </div>

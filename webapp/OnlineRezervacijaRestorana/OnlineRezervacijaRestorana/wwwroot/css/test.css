@@ -1,0 +1,788 @@
+﻿
+ul {
+    list-style-type: none;
+   
+}
+/*Home*/
+
+#navbutton {
+    display: block;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+}
+    #navbutton:hover {
+        background-color: #ff9933;
+    }
+#registerbtn{
+    float:right;
+}
+button:hover {
+    background-color: #00ccff;
+}
+h1, h2 {
+    text-align: center;
+    color: white;
+    margin-top: 0px;
+    font-family: Georgia, serif;
+    opacity: 100%;
+}
+h1 {
+    margin-bottom: 100px;
+}
+h2 {
+    margin-bottom: 75px;
+}
+h3{
+    color:white;
+    text-align:center;
+}
+h4 {
+    text-align: center;
+    margin-top: 10px;
+    color:white;
+}
+.btn-location{
+    margin-bottom: 7px;
+    background-color:gray;
+    
+}
+
+    .btn-location:hover {
+        background-color: #ff9933;
+    }
+.popular-locations-row {
+    height: 150px;
+    max-width: 100%;
+}
+p{
+    color:white;
+}
+.nav-item{
+    float:left;
+    margin-right: 25px;
+    list-style-type: none;
+}
+
+.navbar-brand {
+    color: white;
+    text-decoration: none;
+}
+.nav-link {
+    color: white;
+    border-bottom: 3px solid white;
+    border-radius: 10px;
+    padding: 7px;
+    background: #111;
+}
+
+.navbar {
+    height: 65px;
+    padding: 7px;
+    background: lightgray;
+    border-radius: 9px;
+    opacity: 85%;
+}
+
+.col-xs-6 {
+    float:left;
+}
+.locations{
+    bottom: 350px;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+}
+
+.col-xs-69 {
+    margin: auto;
+    max-width: 100%;
+    box-sizing: border-box;
+    width: 100%;
+    margin-bottom: 5px;
+    margin-top: 125px;
+    height: 356px;
+    border-radius: 9px;
+    margin-top: 42px;
+}
+.rowlin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#locationsearch {
+    width: 287px;
+    height: 38px;
+    text-align: center;
+}
+input::-webkit-input-placeholder {
+    color: black;
+}
+main{
+         margin-bottom: 75px;
+     }
+
+body {
+    margin: 0;
+    background-image: url("https://cdn.pixabay.com/photo/2015/09/14/11/43/restaurant-939435_960_720.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#buttonhome {
+    margin-top: 21px;
+    width: 137px;
+}
+input, button {
+    border: 2px solid gray;
+    border-radius: 7px;
+    margin-right: 8px;
+}
+button {
+    height: 38px;
+}
+input[type="number" i] {
+    width: 60px;
+    height: 32px;
+    text-align: center;
+}
+input[type="date" i], input[type="time" i] {
+    height: 34px;
+    text-align: center;
+}
+/*------------------------------------------------------------------------------------------------------------------------------------------*/
+/*Reservation*/
+.text-left {
+    color: white;
+    font-size: 25px;
+}
+
+line {
+    margin-bottom: 100px;
+}
+.col-md-33, .col-md-22{
+    float: left;
+    width: 185px;
+    max-width: 100%;
+    margin-left: 55px;
+    color:white;
+}
+.col-md-11{
+    margin-top: 155px;
+    max-width:100%;
+    text-align: center;
+}
+input[type="email"]{
+    height: 32px;
+}
+.restaurantSelect {
+    height: 38px;
+    border: 2px solid gray;
+    border-radius: 7px;
+}
+
+.text-left, .text-center {
+    padding: 0;
+    left: 0;
+    top: 0;
+}
+.reserveheader {
+    margin: 0;
+    padding-top: 30px;
+}
+input[type="submit"] {
+    height: 38px;
+    background-color: #1b6ec2;
+    border-color: #1861ac;
+    color: white;
+}
+
+    input[type="submit"]:hover {
+        background-color: #00ccff;
+    }
+/*-------------------------------------------------------------------------------------------------------------------------*/
+
+/*User Reservation*/
+
+.text-center{
+    color:white;
+    
+}
+.container-fluid {
+    background-image: url("https://www.gannett-cdn.com/presto/2020/02/17/USAT/80fa5afd-dd88-407d-aad1-9e25f8ad3b47-04_HOUSTON_Coronavirus_restaurants_021.JPG");
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 700px;
+    bottom:0;
+}
+.alert-success {
+    background-color: green;
+    opacity: 85%;
+    border-radius: 10px;
+}
+.alert{
+    clear:left;
+}
+.alert-danger {
+    background-color: red;
+    opacity: 55%;
+    border-radius:10px;
+}
+.alert-heading {
+    text-align: center;
+}
+.col-md-44 {
+    float: left;
+    width: 185px;
+    max-width: 100%;
+    margin-left: 155px;
+   
+}
+.col-md-333 {
+    max-width: 100%;
+    margin-left: 155px;
+}
+.tableRestaurants {
+    padding-top: 75px;
+    padding-bottom: 35px;
+    color: black;
+    max-width: 1000px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 75px;
+    padding-right: 75px;
+    width: 100%;
+    background-image: url("https://palaisroyalrestaurant.com/wp-content/uploads/2021/06/Palais-Royal-@Guillaume-de-Laubier-Paris-50.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    border-radius: 5px;
+
+}
+.tableUsers {
+    padding-top: 75px;
+    padding-bottom: 35px;
+    color: black;
+    max-width: 1000px;
+    margin-top: 15px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 75px;
+    padding-right: 75px;
+    width: 100%;
+    background-image: url("https://palaisroyalrestaurant.com/wp-content/uploads/2021/06/Palais-Royal-@Guillaume-de-Laubier-Paris-50.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow: hidden;
+    border-radius: 5px;
+}
+#button {
+    text-decoration: none;
+    color: black;
+    text-align: center;
+}
+.headrow {
+    padding: 10px 15px;
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    align-items: center;
+    height: 50px;
+}
+#row {
+    background-color: #ffffff;
+    box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.1);
+    margin-top: 25px;
+    padding: 10px 15px;
+    border-radius: 5px;
+    display: flex;
+    text-align: center;
+    flex-direction: row;
+    align-items: center;
+}
+.wrapper {
+    overflow: auto;
+    border-radius: 6px;
+ 
+}
+thead {
+    box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.1) inset;
+    margin: 2px;
+    background-color: #95A5A6;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+    box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.1) inset;
+}
+th {
+    text-align: center;
+  
+}
+.txt1 {
+    flex-basis: 25%;
+}
+
+.txt2 {
+    flex-basis: 25%;
+}
+
+.txt3 {
+    flex-basis: 25%;
+}
+
+.txt4 {
+    flex-basis: 25%;
+}
+
+.userRow1 {
+    flex-basis: 5%;
+}
+.userRow2 {
+    flex-basis: 10%;
+}
+.userRow3 {
+    flex-basis: 5%;
+}
+.userRow4 {
+    flex-basis: 50%;
+}
+.userRow5 {
+    flex-basis: 15%;
+}
+.userRow6 {
+    flex-basis: 15%;
+}
+
+/*Admin panel*/
+
+.tab-content{
+    margin-bottom: 75px;
+}
+.pagenum {
+    color: white;
+    padding-right:8px;
+}
+.pagenumdiv {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#v-pills-admins-tab{
+    color: white;
+    float: left;
+    margin-top: 15px;
+    margin-bottom: 75px;
+    margin-left: 45px;
+    color: white;
+    border-bottom: 3px solid white;
+    border-radius: 10px;
+    padding: 7px;
+    background: #111;
+    position: relative;
+    text-decoration: none;
+}
+    #v-pills-admins-tab:hover {
+        background-color: #ff9933;
+    }
+#v-pills-restaurants-tab {
+    color: white;
+    float: left;
+    margin-top: 15px;
+    margin-bottom: 75px;
+    margin-left: 45px;
+    color: white;
+    border-bottom: 3px solid white;
+    border-radius: 10px;
+    padding: 7px;
+    background: #111;
+    position: relative;
+    text-decoration: none;
+}
+    #v-pills-restaurants-tab:hover {
+        background-color: #ff9933;
+    }
+
+.txt6 {
+    flex-basis: 5%;
+}
+
+.txt7 {
+    flex-basis: 5%;
+}
+
+.txt8 {
+    flex-basis: 30%;
+}
+
+.txt9 {
+    flex-basis: 30%;
+}
+
+.txt10 {
+    flex-basis: 30%;
+}
+.restxt1 {
+    flex-basis: 3%;
+}
+.restxt2 {
+    flex-basis: 7%;
+}
+.restxt3 {
+    flex-basis: 30%;
+}
+.restxt4 {
+    flex-basis: 15%;
+}
+.restxt5 {
+    flex-basis: 25%;
+}
+.restxt6 {
+    flex-basis: 20%;
+}
+/*-------------------------------------------------------------------------------------------------------------------------*/
+@media only screen and (max-width: 1300px) {
+    .col-md-33, .col-md-22 {
+        margin-left: 35px;
+    }
+}
+    /*Restaurant page*/
+.restaurantHead {
+    margin-left: 75px;
+    margin-right: 75px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap-reverse;
+    align-items:center;
+}
+
+.tableProfile {
+    background-color: gray;
+    float: left;
+    display: inline;
+    border: 5px groove;
+    border-radius: 5px;
+}
+.tableMenu {
+    background-color: gray;
+    float: left;
+    display: inline;
+    border: 5px groove;
+    border-radius: 5px;
+}
+.MenuLabel {
+    display: block;
+    color: white;
+    font-weight: bold;
+    padding-bottom: 7px;
+}
+.divMenuTabel {
+    border: groove 5px solid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.labelTable {
+    display: block;
+    color: white;
+    font-weight: bold;
+    text-align:center;
+}
+.divlabelandTable{
+    border:groove 5px solid;
+    float:left;
+}
+#ajaxDiv{
+    
+}
+.ratecolumn {
+    float: left;
+    width: 350px;
+    color: black;
+    margin-bottom: 125px;
+    background-color: lightgray;
+    opacity: 80%;
+    border-radius: 10px;
+}
+.latestratecolumn {
+    float: right;
+    color: black;
+    margin-bottom: 125px;
+    background-color: lightgray;
+    opacity: 80%;
+    border-radius: 10px;
+    width: 450px;
+}
+
+#text-l{
+    color:black;
+}
+#text-cent{
+    color:black;
+}
+.card-text{
+    color: black;
+}
+#card {
+    background-color: white;
+    border-radius: 10px;
+    padding-left: 7px;
+}
+.form-group {
+    padding-left: 7px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    
+}
+#form-button {
+    margin-left: 30%;
+    width: 125px;
+    margin-top: 7px;
+    margin-bottom: 7px;
+
+}
+#aButton {
+    width: 25%;
+    text-decoration: none;
+    color: white;
+    text-align:center;
+    border: 2px solid white;
+    border-radius:8px;
+    padding: 5px;
+}
+.reserveButton {
+    display: flex;
+    align-items: center;
+    flex-direction:column;
+}
+.row1 {
+    display: flex;
+    flex-direction: row;
+}
+.addForm {
+    width: 250px;
+    color: black;
+    padding: 15px;
+    background-color: lightgray;
+    
+    border-radius: 10px;
+    margin-top: 25px;
+    margin-left: 53px;
+}
+#btnAddTable, #btnAddMeal {
+    margin-left: 76px;
+    margin-top: 8px
+}
+.innerPart {
+    margin-left: 24px;
+}
+.selectMeal {
+    border: 2px solid gray;
+    border-radius: 7px;
+    margin-right: 8px;
+}
+.divFormMenu{
+    margin-bottom:5px;
+}
+.addForms {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.TableandMenu{
+    display:flex;
+    flex-direction:column;
+}
+#file-input {
+    margin-left: 76px;
+}
+#OrderDetailsdiv {
+    width: 397px;
+    color: black;
+    padding: 15px;
+    background-color: lightgray;
+    border-radius: 10px;
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+}
+.confirmResDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px;
+    background-color: lightgray;
+    border-radius: 10px;
+    height: 107px;
+    width: 645px;
+    color:black;
+    margin-left: auto;
+    margin-right: auto;
+    text-align:center;
+}
+.ressuccDiv {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px;
+    border-radius: 10px;
+    color: black;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    width: 645px;
+}
+textarea {
+    border: 2px solid gray;
+    border-radius: 7px;
+    margin-right: 8px;
+    height: 45px;
+}
+.OrderDiv {
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+}
+.mealsSelect {
+    border: 2px solid gray;
+    border-radius: 7px;
+    height:30px;
+}
+.descAllergies {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.labeldescAller{
+    margin-right:5px;
+}
+.labeldescAllerouter {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.divFormMeals{
+    margin-top:7px;
+}
+/*-------------------------------------------------------------------------------------------------------------------------*/
+/* Google maps*/
+.mapSegment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.mapInfo {
+    color: black;
+    padding: 15px;
+    background-color: lightgray;
+    border-radius: 10px;
+    padding: 7px;
+    width: 290px;
+}
+#map {
+    height: 100%;
+    width: 766px;
+    height: 500px;
+    border: solid gray;
+    border-radius: 7px;
+}
+.mapouter {
+    position: relative;
+    text-align: right;
+    height: 500px;
+    width: 766px;
+    padding: 15px;
+    background-color: lightgray;
+    border-radius: 10px;
+    margin-top: 25px;
+    margin-bottom: 25px;
+}
+.gmap_canvas {
+    overflow: hidden;
+    background: none !important;
+    height: 500px;
+    width: 766px;
+}
+#description {
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+#infowindow-content .title {
+    font-weight: bold;
+}
+
+#infowindow-content {
+    display: none;
+}
+
+#map #infowindow-content {
+    display: inline;
+}
+
+.pac-card {
+    background-color: #fff;
+    border: 0;
+    border-radius: 2px;
+    box-shadow: 0 1px 4px -1px rgba(0, 0, 0, 0.3);
+    margin: 10px;
+    padding: 0 0.5em;
+    font: 400 18px Roboto, Arial, sans-serif;
+    overflow: hidden;
+    font-family: Roboto;
+    padding: 0;
+}
+
+#pac-container {
+    padding-bottom: 12px;
+    margin-right: 12px;
+}
+
+.pac-controls {
+    display: inline-block;
+    padding: 5px 11px;
+}
+
+    .pac-controls label {
+        font-family: Roboto;
+        font-size: 13px;
+        font-weight: 300;
+    }
+
+#pac-input {
+    background-color: #fff;
+    font-family: Roboto;
+    font-size: 15px;
+    font-weight: 300;
+    margin-left: 12px;
+    padding: 0 11px 0 13px;
+    text-overflow: ellipsis;
+    width: 400px;
+    margin-top: 12px;
+}
+
+    #pac-input:focus {
+        border-color: #4d90fe;
+    }
+
+#title {
+    color: #fff;
+    background-color: #4d90fe;
+    font-size: 25px;
+    font-weight: 500;
+    padding: 6px 12px;
+}
+#target {
+    width: 345px;
+}
+form .error {
+    color: #ff0000;
+}
+.flexOrder{
+    display:flex;
+    flex-direction: column;
+    align-items:center;
+}
