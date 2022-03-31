@@ -30,7 +30,9 @@ namespace Online_Rezervacija_Restorana.Services
             }
 
             Table table = tableRepository.GetAvailableTable(numberOfPeople, restaurant.ID, startTime, endTime);
-
+            if(table == null)
+                 return null;
+            
             Reservation reservation = new Reservation();
             reservation.GuestNumber = numberOfPeople;
             reservation.IsTemporary = false;
